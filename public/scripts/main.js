@@ -103,7 +103,7 @@ function saveImageMessage(file) {
       });
     });
   }).catch(function(error) {
-    console.error('There was an error uploading a file to Cloud Storage:', error);
+    console.error('Houve um erro ao enviar imagem para o Cloud Storage:', error);
   });
 }
 // Saves the messaging device token to the datastore.
@@ -119,7 +119,7 @@ function saveMessagingDeviceToken() {
       requestNotificationsPermissions();
     }
   }).catch(function(error){
-    console.error('Unable to get messaging token.', error);
+    console.error('Não foi possível conseguir o token da mensagem.', error);
   });
 }
 // Requests permission to show notifications.
@@ -129,7 +129,7 @@ function requestNotificationsPermissions() {
     // Notification permission granted.
     saveMessagingDeviceToken();
   }).catch(function(error) {
-    console.error('Unable to get permission to notify.', error);
+    console.error('Não foi possível conseguir autorização de notificação', error);
   });
 }
 // Triggered when a file is selected via the media picker.
@@ -143,7 +143,7 @@ function onMediaFileSelected(event) {
   // Check if the file is an image.
   if (!file.type.match('image.*')) {
     var data = {
-      message: 'You can only share images',
+      message: 'VocÊ pode compartilhar somente imagens',
       timeout: 2000
     };
     signInSnackbarElement.MaterialSnackbar.showSnackbar(data);
